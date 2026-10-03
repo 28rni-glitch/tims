@@ -51,13 +51,23 @@ jobs:
         if: always()
         shell: bash
         run: |
-          for f in build/run/clientGameTest/screenshots/*.png; do
-            [ -f "$f" ] || continue
-            if command -v convert >/dev/null; then convert "$f" -resize 640x -quality 82 /tmp/shot.jpg; else cp "$f" /tmp/shot.jpg; fi
-            echo "=====BEGIN $(basename "$f")"
-            base64 -w 120 /tmp/shot.jpg
-            echo "=====END"
-          done
+          sudo apt-get install -y python3-pil > /dev/null
+          python3 - <<'PY'
+          import base64, glob, io, os
+          from PIL import Image
+          for f in sorted(glob.glob("build/run/clientGameTest/screenshots/*.png")):
+              if "inventory" in f:
+                  continue
+              im = Image.open(f).convert("RGB")
+              im.thumbnail((640, 640))
+              buf = io.BytesIO()
+              im.save(buf, "JPEG", quality=80)
+              data = base64.b64encode(buf.getvalue()).decode()
+              print("=====BEGIN", os.path.basename(f))
+              for i in range(0, len(data), 120):
+                  print(data[i:i + 120])
+              print("=====END")
+          PY
 
       # Fail if the game logged problems with this mod's assets or data
       # (missing textures, broken models, recipes that failed to load, ...).
