@@ -33,8 +33,9 @@ jobs:
 
       # Launches the real game client in a virtual display and takes screenshots.
       - name: client game test
+        timeout-minutes: 15
         shell: bash
-        run: xvfb-run -a ./gradlew runClientGameTest --stacktrace 2>&1 | tee client.log
+        run: xvfb-run -a -s "-screen 0 1920x1080x24" ./gradlew runClientGameTest --stacktrace 2>&1 | tee client.log
       - name: upload screenshots
         if: always()
         uses: actions/upload-artifact@v7
