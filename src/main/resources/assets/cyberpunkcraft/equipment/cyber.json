@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "cyberpunkcraft:cyber"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "cyberpunkcraft:cyber"
+      }
+    ]
+  }
+}

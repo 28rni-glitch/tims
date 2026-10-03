@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "minecraft:gravel",
+    "minecraft:gravel",
+    "#minecraft:coals"
+  ],
+  "result": {
+    "id": "cyberpunkcraft:asphalt",
+    "count": 2
+  }
+}

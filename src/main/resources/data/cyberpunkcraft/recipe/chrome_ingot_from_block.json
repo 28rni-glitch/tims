@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "cyberpunkcraft:chrome_block"
+  ],
+  "result": {
+    "id": "cyberpunkcraft:chrome_ingot",
+    "count": 9
+  }
+}

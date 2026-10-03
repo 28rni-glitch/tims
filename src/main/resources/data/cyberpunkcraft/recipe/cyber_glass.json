@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "GGG",
+    "GNG",
+    "GGG"
+  ],
+  "key": {
+    "G": "minecraft:glass",
+    "N": "cyberpunkcraft:neon_dust"
+  },
+  "result": {
+    "id": "cyberpunkcraft:cyber_glass",
+    "count": 8
+  }
+}

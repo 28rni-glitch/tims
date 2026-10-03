@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "CMC",
+    "C C",
+    "C C"
+  ],
+  "key": {
+    "C": "cyberpunkcraft:chrome_ingot",
+    "M": "cyberpunkcraft:microchip"
+  },
+  "result": {
+    "id": "cyberpunkcraft:cyber_leggings",
+    "count": 1
+  }
+}

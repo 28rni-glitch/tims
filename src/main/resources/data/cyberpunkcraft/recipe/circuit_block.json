@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "PPP",
+    "PMP",
+    "PPP"
+  ],
+  "key": {
+    "P": "cyberpunkcraft:chrome_plating",
+    "M": "cyberpunkcraft:microchip"
+  },
+  "result": {
+    "id": "cyberpunkcraft:circuit_block",
+    "count": 8
+  }
+}

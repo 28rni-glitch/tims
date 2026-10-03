@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "  C",
+    "NC ",
+    "SN "
+  ],
+  "key": {
+    "C": "cyberpunkcraft:chrome_ingot",
+    "N": "cyberpunkcraft:neon_dust",
+    "S": "minecraft:stick"
+  },
+  "result": {
+    "id": "cyberpunkcraft:neon_katana",
+    "count": 1
+  }
+}

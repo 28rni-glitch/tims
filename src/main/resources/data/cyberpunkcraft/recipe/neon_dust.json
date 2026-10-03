@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:glowstone_dust",
+    "minecraft:redstone"
+  ],
+  "result": {
+    "id": "cyberpunkcraft:neon_dust",
+    "count": 2
+  }
+}

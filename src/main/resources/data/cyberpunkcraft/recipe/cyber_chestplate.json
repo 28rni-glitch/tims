@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "C C",
+    "CMC",
+    "CCC"
+  ],
+  "key": {
+    "C": "cyberpunkcraft:chrome_ingot",
+    "M": "cyberpunkcraft:microchip"
+  },
+  "result": {
+    "id": "cyberpunkcraft:cyber_chestplate",
+    "count": 1
+  }
+}

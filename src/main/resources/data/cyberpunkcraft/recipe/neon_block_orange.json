@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "GNG",
+    "NDN",
+    "GNG"
+  ],
+  "key": {
+    "G": "minecraft:glass",
+    "N": "cyberpunkcraft:neon_dust",
+    "D": "minecraft:orange_dye"
+  },
+  "result": {
+    "id": "cyberpunkcraft:neon_block_orange",
+    "count": 4
+  }
+}

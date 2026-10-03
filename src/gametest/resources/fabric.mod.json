@@ -1,0 +1,15 @@
+{
+	"schemaVersion": 1,
+	"id": "cyberpunkcraft-test",
+	"version": "1.0.0",
+	"name": "Cyberpunk Craft Tests",
+	"environment": "*",
+	"entrypoints": {
+		"fabric-gametest": [
+			"com.cyberpunkcraft.test.CyberpunkCraftGameTest"
+		],
+		"fabric-client-gametest": [
+			"com.cyberpunkcraft.test.CyberpunkCraftClientGameTest"
+		]
+	}
+}

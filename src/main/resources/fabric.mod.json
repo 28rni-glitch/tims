@@ -1,0 +1,24 @@
+{
+	"schemaVersion": 1,
+	"id": "cyberpunkcraft",
+	"version": "${version}",
+	"name": "Cyberpunk Craft",
+	"description": "Neon lights, chrome, laser blasters and cyber armor. Turn your world into a cyberpunk megacity.",
+	"authors": [
+		"28rni-glitch"
+	],
+	"license": "All-Rights-Reserved",
+	"icon": "assets/cyberpunkcraft/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.cyberpunkcraft.CyberpunkCraft"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

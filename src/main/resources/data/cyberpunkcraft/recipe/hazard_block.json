@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "cyberpunkcraft:chrome_plating",
+    "cyberpunkcraft:chrome_plating",
+    "minecraft:yellow_dye",
+    "minecraft:black_dye"
+  ],
+  "result": {
+    "id": "cyberpunkcraft:hazard_block",
+    "count": 2
+  }
+}

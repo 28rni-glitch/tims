@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " R ",
+    "CGC",
+    " R "
+  ],
+  "key": {
+    "R": "minecraft:redstone",
+    "C": "cyberpunkcraft:chrome_ingot",
+    "G": "minecraft:gold_ingot"
+  },
+  "result": {
+    "id": "cyberpunkcraft:microchip",
+    "count": 2
+  }
+}

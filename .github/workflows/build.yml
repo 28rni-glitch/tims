@@ -1,0 +1,55 @@
+# Builds the mod on every push, runs the game tests, and uploads the mod jar
+# and in-game screenshots as downloadable artifacts.
+name: build
+on: [pull_request, push, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v6
+      - name: validate gradle wrapper
+        uses: gradle/actions/wrapper-validation@v6
+      - name: setup jdk
+        uses: actions/setup-java@v5
+        with:
+          java-version: '25'
+          distribution: 'microsoft'
+      - name: setup gradle
+        uses: gradle/actions/setup-gradle@v6
+      - name: make gradle wrapper executable
+        run: chmod +x ./gradlew
+
+      # `build` also starts a Minecraft server and runs the server game tests.
+      - name: build
+        shell: bash
+        run: ./gradlew build --stacktrace 2>&1 | tee build.log
+      - name: upload mod jar
+        uses: actions/upload-artifact@v7
+        with:
+          name: cyberpunkcraft-mod
+          path: build/libs/
+
+      # Launches the real game client in a virtual display and takes screenshots.
+      - name: client game test
+        shell: bash
+        run: xvfb-run -a ./gradlew runClientGameTest --stacktrace 2>&1 | tee client.log
+      - name: upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: screenshots
+          path: build/run/clientGameTest/screenshots/
+          if-no-files-found: warn
+
+      # Fail if the game logged problems with this mod's assets or data
+      # (missing textures, broken models, recipes that failed to load, ...).
+      - name: check logs for mod errors
+        if: always()
+        shell: bash
+        run: |
+          if grep -E "(WARN|ERROR).*cyberpunkcraft|cyberpunkcraft.*(Missing|missing|Unable|Failed|failed|Couldn't|Exception)" build.log client.log; then
+            echo "::error::The game reported problems with Cyberpunk Craft (see lines above)"
+            exit 1
+          fi

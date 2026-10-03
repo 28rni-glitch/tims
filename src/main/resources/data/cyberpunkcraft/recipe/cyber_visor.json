@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "CMC",
+    "N N"
+  ],
+  "key": {
+    "C": "cyberpunkcraft:chrome_ingot",
+    "M": "cyberpunkcraft:microchip",
+    "N": "cyberpunkcraft:neon_dust"
+  },
+  "result": {
+    "id": "cyberpunkcraft:cyber_visor",
+    "count": 1
+  }
+}

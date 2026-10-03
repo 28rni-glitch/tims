@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "cyberpunkcraft:item/chrome_ingot"
+  }
+}
