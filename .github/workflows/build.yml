@@ -49,7 +49,7 @@ jobs:
         if: always()
         shell: bash
         run: |
-          if grep -E "(WARN|ERROR).*cyberpunkcraft|cyberpunkcraft.*(Missing|missing|Unable|Failed|failed|Couldn't|Exception)" build.log client.log; then
+          if grep -s -E "(WARN|ERROR).*cyberpunkcraft|cyberpunkcraft.*(Missing|missing|Unable|Failed|failed|Couldn't|Exception)" build.log client.log; then
             echo "::error::The game reported problems with Cyberpunk Craft (see lines above)"
             exit 1
           fi

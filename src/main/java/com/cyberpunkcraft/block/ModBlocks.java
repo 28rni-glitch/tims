@@ -66,7 +66,7 @@ public final class ModBlocks {
 					.requiresCorrectToolForDrops()
 					.strength(1.5F, 6.0F)
 					.sound(SoundType.STONE)
-					.speedFactor(1.25F)
+					.speedFactor(1.15F)
 	);
 
 	public static final Block HAZARD_BLOCK = register(
