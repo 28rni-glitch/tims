@@ -46,29 +46,6 @@ jobs:
           path: build/run/clientGameTest/screenshots/
           if-no-files-found: warn
 
-      # TEMP: prints small JPEG copies of the screenshots into the log for review.
-      - name: print screenshots
-        if: always()
-        shell: bash
-        run: |
-          sudo apt-get install -y python3-pil > /dev/null
-          python3 - <<'PY'
-          import base64, glob, io, os
-          from PIL import Image
-          for f in sorted(glob.glob("build/run/clientGameTest/screenshots/*.png")):
-              if "inventory" in f:
-                  continue
-              im = Image.open(f).convert("RGB")
-              im.thumbnail((640, 640))
-              buf = io.BytesIO()
-              im.save(buf, "JPEG", quality=80)
-              data = base64.b64encode(buf.getvalue()).decode()
-              print("=====BEGIN", os.path.basename(f))
-              for i in range(0, len(data), 120):
-                  print(data[i:i + 120])
-              print("=====END")
-          PY
-
       # Fail if the game logged problems with this mod's assets or data
       # (missing textures, broken models, recipes that failed to load, ...).
       - name: check logs for mod errors
