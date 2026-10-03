@@ -43,6 +43,19 @@ jobs:
           path: build/run/clientGameTest/screenshots/
           if-no-files-found: warn
 
+      # TEMP: prints small JPEG copies of the screenshots into the log for review.
+      - name: print screenshots
+        if: always()
+        shell: bash
+        run: |
+          for f in build/run/clientGameTest/screenshots/*.png; do
+            [ -f "$f" ] || continue
+            if command -v convert >/dev/null; then convert "$f" -resize 640x -quality 82 /tmp/shot.jpg; else cp "$f" /tmp/shot.jpg; fi
+            echo "=====BEGIN $(basename "$f")"
+            base64 -w 120 /tmp/shot.jpg
+            echo "=====END"
+          done
+
       # Fail if the game logged problems with this mod's assets or data
       # (missing textures, broken models, recipes that failed to load, ...).
       - name: check logs for mod errors

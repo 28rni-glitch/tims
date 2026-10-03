@@ -13,7 +13,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.packs.resources.Resource;
-import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootTable;
 
@@ -24,17 +23,23 @@ import com.cyberpunkcraft.block.ModBlocks;
 
 public class CyberpunkCraftGameTest {
 	@GameTest
-	public void neonBlockGlows(GameTestHelper helper) {
-		BlockPos neonPos = new BlockPos(1, 1, 1);
-		helper.setBlock(neonPos, ModBlocks.NEON_BLOCK_CYAN);
+	public void neonBlocksGlow(GameTestHelper helper) {
+		Block[] neonBlocks = {
+				ModBlocks.NEON_BLOCK_CYAN, ModBlocks.NEON_BLOCK_MAGENTA, ModBlocks.NEON_BLOCK_PINK,
+				ModBlocks.NEON_BLOCK_PURPLE, ModBlocks.NEON_BLOCK_LIME, ModBlocks.NEON_BLOCK_ORANGE
+		};
 
-		helper.succeedWhen(() -> {
-			int light = helper.getLevel().getBrightness(LightLayer.BLOCK, helper.absolutePos(neonPos.above()));
+		for (int i = 0; i < neonBlocks.length; i++) {
+			BlockPos pos = new BlockPos(i, 1, 1);
+			helper.setBlock(pos, neonBlocks[i]);
+			int light = helper.getBlockState(pos).getLightEmission();
 
-			if (light < 14) {
-				throw fail(helper, "Expected light level 14 next to a neon block, got " + light);
+			if (light != 15) {
+				throw fail(helper, BuiltInRegistries.BLOCK.getKey(neonBlocks[i]) + " should give off light level 15, got " + light);
 			}
-		});
+		}
+
+		helper.succeed();
 	}
 
 	@GameTest

@@ -23,5 +23,6 @@
   "item.cyberpunkcraft.cyber_leggings": "Cyber Leggings",
   "item.cyberpunkcraft.cyber_boots": "Cyber Boots",
   "item.cyberpunkcraft.neon_katana.tooltip": "Right-click to dash forward",
-  "item.cyberpunkcraft.plasma_blaster.tooltip": "Right-click to fire a laser beam"
+  "item.cyberpunkcraft.plasma_blaster.tooltip": "Right-click to fire a laser beam",
+  "tag.item.cyberpunkcraft.repairs_cyber_gear": "Repairs Cyber Gear"
 }
